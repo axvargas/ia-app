@@ -199,7 +199,6 @@ function App() {
             variant="contained"
             color="primary"
             onClick={() => {
-              console.log("processing: ", selectedFile)
               handleClickOpen()
               uploadFile()
             }}
