@@ -45,9 +45,13 @@ function App() {
     const formData = new FormData()
     formData.append('file', selectedFile)
     try {
-      const response = await fetch('/api/upload', {
+      const url = "https://predic.free.beeceptor.com/predict"
+      const response = await fetch(url, {
         method: 'POST',
-        body: formData,
+        // body: formData,
+        // headers: {
+        //   'Content-Type': 'multipart/form-data',
+        // },
       })
       const data = await response.json()
       setData(data)
@@ -67,6 +71,9 @@ function App() {
 
   const handleClose = () => {
     setOpen(false);
+    setData()
+    setSelectedFile()
+    setFileError(false)
   };
 
   const onSelectFile = e => {

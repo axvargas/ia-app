@@ -8,7 +8,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Slide from '@mui/material/Slide';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Stack from '@mui/material/Stack';
 
+import ResultTable from './ResultTable';
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -22,6 +24,10 @@ export default function ResultDialog(props) {
 
     handleClose
   } = props;
+
+  if(fileError){
+    console.log('fileError: ', fileError)
+  }
 
   return (
     <div>
@@ -48,27 +54,38 @@ export default function ResultDialog(props) {
         </AppBar>
         {/* Progress bar while loading */}
         {loading && (
-          <Box sx={{ display: 'flex' }}>
+          <Stack 
+            alignItems="center"
+            sx={{
+              flexGrow: 1,
+              justifyContent: 'center',
+            }}
+          >
             <CircularProgress />
-          </Box>
+            <Box
+              sx={{
+                typography: 'subtitle2',
+                textAlign: 'center',
+                margin: '.5rem',
+              }}
+            >
+              We are currently counting your money, wait a sec &#x1F600;
+            </Box>
+          </Stack>
         )}
         {/* Result */}
         {
           data && (
-            <Box>
-              Result {data}
-            </Box>
+            <ResultTable data={data} />
           )
         }
         {
           fileError && (
             <Box>
-              Error {fileError}
+              Error while processing file
             </Box>
           )
         }
-        
-
       </Dialog>
     </div>
   );
