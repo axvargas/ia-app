@@ -4,7 +4,6 @@ import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
@@ -26,15 +25,19 @@ function App() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState()
+  const [objectURL, setObjectURL] = useState()
   useEffect(() => {
     if (!selectedFile) {
       setPreview()
       return
     }
-    const objectUrl = URL.createObjectURL(selectedFile)
-    setPreview(objectUrl)
+    setPreview(objectURL)
 
-    return () => URL.revokeObjectURL(objectUrl)
+    return () => {
+      URL.revokeObjectURL(objectURL)
+      setObjectURL()
+    }
+    // eslint-disable-next-line 
   }, [selectedFile])
 
   const uploadFile = async () => {
@@ -78,9 +81,10 @@ function App() {
       setSelectedFile(undefined)
       return
     }
-    const objectUrl = URL.createObjectURL(e.target.files[0])
+    const objURL = URL.createObjectURL(e.target.files[0])
+    setObjectURL(objURL)
     let img = new Image()
-    img.src = objectUrl
+    img.src = objURL
     img.onload = () => {
       if (img.width / img.height !== 1) {
         setRatioError(true)
@@ -121,28 +125,58 @@ function App() {
           sx={{
             width: '300px',
             height: '300px',
-            border: '1px solid #ccc',
+            border: '1px dashed #ccc',
             borderRadius: '5%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#eee',
+            backgroundImage: `{url(${preview})`,
+            backgroundRepeat: 'no-repeat',
           }}
         >
           {
-            preview && (
-              <img
-                src={preview}
-                alt="preview"
-                width="300"
-                height="300"
-                style={{
-                  borderRadius: '5%',
-                }}
-              />
-            )
+            preview &&
+            <img
+              src={preview}
+              alt="preview"
+              width="300"
+              height="300"
+              style={{
+                borderRadius: '5%',
+              }}
+            />
           }
+          <Box 
+            sx={{
+              position: preview? 'absolute': 'relative',
+              opacity: 0.5,
+              '&:hover': {
+                opacity: 1,
+              },
+            }}
+          >
+            <label htmlFor="icon-button-file">
+              <Input
+                id="icon-button-file"
+                accept="image/*"
+                type="file"
+                capture="environment"
+                onChange={onSelectFile}
+              />
+              <Button 
+                aria-label="upload picture"
+                component="span" 
+                variant="contained" 
+                startIcon={<PhotoCamera />}
+              >
+                Upload
+              </Button>
+            </label>
+          </Box>
         </Stack>
+
+        
         <Box
           sx={{
             typography: 'subtitle2',
@@ -165,7 +199,7 @@ function App() {
             </Alert>
           )
         }
-        <Stack
+        {/* <Stack
           direction="row"
           alignItems="center"
           spacing={2}
@@ -189,7 +223,7 @@ function App() {
               <PhotoCamera />
             </IconButton>
           </label>
-        </Stack>
+        </Stack> */}
         <Box mt={2}>
           <Button
             disabled={!selectedFile || ratioError}
