@@ -43,18 +43,15 @@ function App() {
     }
     setLoading(true)
     const formData = new FormData()
-    formData.append('file', selectedFile)
+    formData.append('image', selectedFile)
     try {
-      const url = "https://predic.free.beeceptor.com/predict"
+      const url = "http://192.168.100.35:3001/predict"
       const response = await fetch(url, {
         method: 'POST',
-        // body: formData,
-        // headers: {
-        //   'Content-Type': 'multipart/form-data',
-        // },
+        body: formData
       })
       const data = await response.json()
-      setData(data)
+      setData(data.prediction)
       setFileError(false)
     }
     catch (error) {

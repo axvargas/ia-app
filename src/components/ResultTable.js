@@ -23,20 +23,20 @@ function total(data) {
 }
 
 const coinName = { 
-  "one_cent": "One Cent", 
-  "five_cents": "Five Cents", 
-  "ten_cents": "Ten Cents",
-  "twenty_five_cents": "Twenty Five Cents",
-  "fifty_cents": "Fifty Cents", 
-  "one_dollar": "One Dollar"
+  "one cent": "One Cent", 
+  "five cents": "Five Cents", 
+  "ten cents": "Ten Cents",
+  "twenty five cents": "Twenty Five Cents",
+  "fifty cents": "Fifty Cents", 
+  "one dollar": "One Dollar"
 }
 const coinValue = { 
-  "one_cent": 0.01, 
-  "five_cents": 0.05, 
-  "ten_cents": 0.10,
-  "twenty_five_cents": 0.25,
-  "fifty_cents": 0.50,
-  "one_dollar": 1.00
+  "one cent": 0.01, 
+  "five cents": 0.05, 
+  "ten cents": 0.10,
+  "twenty five cents": 0.25,
+  "fifty cents": 0.50,
+  "one dollar": 1.00
 }
 
 export default function ResultTable(props) {

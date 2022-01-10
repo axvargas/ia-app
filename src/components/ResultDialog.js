@@ -21,7 +21,6 @@ export default function ResultDialog(props) {
     loading,
     fileError,
     data,
-
     handleClose
   } = props;
 
