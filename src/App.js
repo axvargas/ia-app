@@ -48,13 +48,13 @@ function App() {
     const formData = new FormData()
     formData.append('image', selectedFile)
     try {
-      const url = "http://192.168.100.35:3001/predict"
+      const url = "http://192.168.100.6:3001/predict"
       const response = await fetch(url, {
         method: 'POST',
         body: formData
       })
       const data = await response.json()
-      setData(data.prediction)
+      setData(data)
       setFileError(false)
     }
     catch (error) {
@@ -150,29 +150,29 @@ function App() {
           <Box 
             sx={{
               position: preview? 'absolute': 'relative',
-              opacity: 0.5,
               '&:hover': {
                 opacity: 1,
               },
             }}
           >
-            <label htmlFor="icon-button-file">
-              <Input
-                id="icon-button-file"
-                accept="image/*"
-                type="file"
-                capture="environment"
-                onChange={onSelectFile}
-              />
-              <Button 
-                aria-label="upload picture"
-                component="span" 
-                variant="contained" 
-                startIcon={<PhotoCamera />}
-              >
-                Upload
-              </Button>
-            </label>
+            {
+              !selectedFile &&
+              <label htmlFor="icon-button-file">
+                <Input
+                  id="icon-button-file"
+                  accept="image/*"
+                  type="file"
+                  capture="environment"
+                  onChange={onSelectFile}/>
+                <Button 
+                  aria-label="upload picture"
+                  component="span" 
+                  variant="contained" 
+                  startIcon={<PhotoCamera />}>
+                  Upload
+                </Button>
+              </label>
+            }
           </Box>
         </Stack>
 

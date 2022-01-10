@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 
 function format(num) {
@@ -40,7 +41,8 @@ const coinValue = {
 }
 
 export default function ResultTable(props) {
-  const { data } = props;
+  const { data: response } = props;
+  const { prediction: data, image } = response;
   return (
     <TableContainer component={Paper}>
       <Table aria-label="result table">
@@ -61,12 +63,19 @@ export default function ResultTable(props) {
           ))}
 
           <TableRow>
-            <TableCell rowSpan={3} />
-            <TableCell colSpan={1}><Box sx={{ fontWeight: 'bold' }}>Total</Box></TableCell>
+            <TableCell rowSpan={1} />
+            <TableCell colSpan={1} align='right'><Box sx={{ fontWeight: 'bold', fontSize: 'h5.fontSize' }}>Total</Box></TableCell>
             <TableCell align="right"><Box sx={{ fontWeight: 'bold', fontSize: 'h5.fontSize' }}>{format(total(data))}</Box></TableCell>
           </TableRow>
         </TableBody>
       </Table>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center">
+        <img src={`data:image/png;base64,${image}`} alt="coin image predicted" />
+      </Grid>
     </TableContainer>
   );
 }
