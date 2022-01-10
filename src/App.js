@@ -125,14 +125,12 @@ function App() {
           sx={{
             width: '300px',
             height: '300px',
-            border: '1px dashed #ccc',
+            border: '1px solid #ccc',
             borderRadius: '5%',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#eee',
-            backgroundImage: `{url(${preview})`,
-            backgroundRepeat: 'no-repeat',
           }}
         >
           {
@@ -199,31 +197,6 @@ function App() {
             </Alert>
           )
         }
-        {/* <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{
-            marginTop: '1rem',
-          }}
-        >
-          <label htmlFor="icon-button-file">
-            <Input
-              id="icon-button-file"
-              accept="image/*"
-              type="file"
-              capture="environment"
-              onChange={onSelectFile}
-            />
-            <IconButton
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-            >
-              <PhotoCamera />
-            </IconButton>
-          </label>
-        </Stack> */}
         <Box mt={2}>
           <Button
             disabled={!selectedFile || ratioError}
