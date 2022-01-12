@@ -42,7 +42,7 @@ const coinValue = {
 
 export default function ResultTable(props) {
   const { data: response } = props;
-  const { prediction: data, image } = response;
+  const { prediction: data, image: phot } = response;
   return (
     <TableContainer component={Paper}>
       <Table aria-label="result table">
@@ -74,7 +74,7 @@ export default function ResultTable(props) {
         direction="row"
         justifyContent="center"
         alignItems="center">
-        <img src={`data:image/png;base64,${image}`} alt="coin image predicted" />
+        <img src={`data:image/png;base64,${phot}`} alt="coin phot predicted" />
       </Grid>
     </TableContainer>
   );
