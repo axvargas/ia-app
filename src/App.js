@@ -169,7 +169,7 @@ function App() {
                   component="span" 
                   variant="contained" 
                   startIcon={<PhotoCamera />}>
-                  Upload
+                  Subir imagen
                 </Button>
               </label>
             }
@@ -184,7 +184,7 @@ function App() {
             margin: '.5rem',
           }}
         >
-          Upload an image with coins to see the total amount. Use aspect ratio 1:1 in your camera
+          Subir una imagen con monedas para ver el total. Usa la relación de aspecto 1:1 en tu cámara
         </Box>
         {
           ratioError && (
@@ -195,7 +195,7 @@ function App() {
                 margin: '1rem'
               }}
             >
-              Use aspect ratio 1:1 in your camera
+              La relación de aspecto de la imagen debe ser 1:1
             </Alert>
           )
         }
@@ -234,7 +234,7 @@ function App() {
               uploadFile()
             }}
           >
-            Process
+            Procesar
           </Button>
         </Box>
       </Grid>

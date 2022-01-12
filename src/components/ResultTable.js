@@ -24,20 +24,20 @@ function total(data) {
 }
 
 const coinName = { 
-  "one cent": "One Cent", 
-  "five cents": "Five Cents", 
-  "ten cents": "Ten Cents",
-  "twenty five cents": "Twenty Five Cents",
-  "fifty cents": "Fifty Cents", 
-  "one dollar": "One Dollar"
+  "un centavo": "Un centavo", 
+  "cinco centavos": "Cinco centavos",
+  "diez centavos": "Diez centavos",
+  "veinte cinco centavos": "Veinticinco centavos",
+  "cincuenta centavos": "Cincuenta centavos",
+  "un dólar": "Un dólar",
 }
 const coinValue = { 
-  "one cent": 0.01, 
-  "five cents": 0.05, 
-  "ten cents": 0.10,
-  "twenty five cents": 0.25,
-  "fifty cents": 0.50,
-  "one dollar": 1.00
+  "un centavo": 0.01, 
+  "cinco centavos": 0.05, 
+  "diez centavos": 0.10,
+  "veinte cinco centavos": 0.25,
+  "cincuenta centavos": 0.50,
+  "un dólar": 1.00
 }
 
 export default function ResultTable(props) {
@@ -48,9 +48,9 @@ export default function ResultTable(props) {
       <Table aria-label="result table">
         <TableHead>
           <TableRow>
-            <TableCell> <Box sx={{ fontWeight: 'bold' }}>Coin</Box> </TableCell>
-            <TableCell align="right"><Box sx={{ fontWeight: 'bold' }}>Qty.</Box></TableCell>
-            <TableCell align="right"><Box sx={{ fontWeight: 'bold' }}>Sum</Box></TableCell>
+            <TableCell> <Box sx={{ fontWeight: 'bold' }}>Modena</Box> </TableCell>
+            <TableCell align="right"><Box sx={{ fontWeight: 'bold' }}>Cantidad</Box></TableCell>
+            <TableCell align="right"><Box sx={{ fontWeight: 'bold' }}>Suma</Box></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -16,7 +16,7 @@ export default function Appbar() {
             }}
           />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            IA Coins
+            IA USD
           </Typography>
         </Toolbar>
       </AppBar>

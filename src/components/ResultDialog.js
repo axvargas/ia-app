@@ -25,7 +25,7 @@ export default function ResultDialog(props) {
   } = props;
 
   if(fileError){
-    console.log('fileError: ', fileError)
+    console.log('File Error: ', fileError)
   }
 
   return (
@@ -47,7 +47,7 @@ export default function ResultDialog(props) {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Result
+              Resultado
             </Typography>
           </Toolbar>
         </AppBar>
@@ -58,17 +58,15 @@ export default function ResultDialog(props) {
             sx={{
               flexGrow: 1,
               justifyContent: 'center',
-            }}
-          >
-            <CircularProgress />
+            }}>
+            <CircularProgress/>
             <Box
               sx={{
                 typography: 'subtitle2',
                 textAlign: 'center',
                 margin: '.5rem',
-              }}
-            >
-              We are currently counting your money, wait a sec &#x1F600;
+              }}>
+              Estamos contando su dinero, espere un momento &#x1F600;
             </Box>
           </Stack>
         )}
@@ -81,7 +79,7 @@ export default function ResultDialog(props) {
         {
           fileError && (
             <Box>
-              Error while processing file
+              Error al procesar el archivo
             </Box>
           )
         }
