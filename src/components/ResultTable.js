@@ -27,7 +27,7 @@ const coinName = {
   "un centavo": "Un centavo", 
   "cinco centavos": "Cinco centavos",
   "diez centavos": "Diez centavos",
-  "veinte cinco centavos": "Veinticinco centavos",
+  "veinticinco centavos": "Veinticinco centavos",
   "cincuenta centavos": "Cincuenta centavos",
   "un dólar": "Un dólar",
 }
@@ -35,7 +35,7 @@ const coinValue = {
   "un centavo": 0.01, 
   "cinco centavos": 0.05, 
   "diez centavos": 0.10,
-  "veinte cinco centavos": 0.25,
+  "veinticinco centavos": 0.25,
   "cincuenta centavos": 0.50,
   "un dólar": 1.00
 }
