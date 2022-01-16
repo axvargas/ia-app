@@ -48,7 +48,7 @@ function App() {
     const formData = new FormData()
     formData.append('image', selectedFile)
     try {
-      const url = "http://192.168.100.6:3001/predict"
+      const url = "http://192.168.100.37:3001/predict"
       const response = await fetch(url, {
         method: 'POST',
         body: formData
